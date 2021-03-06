@@ -31,6 +31,9 @@ jobs:
     - name: Restore NuGet packages
       run: nuget restore BugGuardian.MVC.sln
     
+    - name: Create Build Directory
+      run: mkdir _build
+  
     - name: Build the Solution
-      run: msbuild BugGuardian.MVC.sln /p:OutputPath=release;Configuration=Release
+      run: msbuild BugGuardian.MVC.sln /p:configuration="Release" /p:PublishUrl="../_build"
     
